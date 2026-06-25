@@ -1,0 +1,86 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Baptiste Garderes', description = 'Engineering portfolio' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --bg: #0f1117;
+        --surface: #1a1d27;
+        --border: #2a2d3a;
+        --accent: #6c8aff;
+        --accent-dim: #3d4f99;
+        --text: #e2e8f0;
+        --muted: #8892a4;
+        --font: 'Inter', system-ui, sans-serif;
+      }
+
+      html { font-family: var(--font); background: var(--bg); color: var(--text); scroll-behavior: smooth; }
+
+      body { min-height: 100vh; display: flex; flex-direction: column; }
+
+      nav {
+        position: sticky; top: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 1rem 2rem;
+        background: rgba(15, 17, 23, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-brand { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text); letter-spacing: -0.02em; }
+      .nav-brand span { color: var(--accent); }
+
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+      .nav-links a:hover { color: var(--text); }
+
+      main { flex: 1; }
+
+      footer {
+        padding: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+        border-top: 1px solid var(--border);
+      }
+
+      @media (max-width: 600px) {
+        nav { padding: 1rem; }
+        .nav-links { gap: 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-brand" href={base}><span>B</span>aptiste Garderes</a>
+      <ul class="nav-links">
+        <li><a href={base}>Home</a></li>
+        <li><a href={`${base}projects`}>Projects</a></li>
+        <li><a href={`${base}about`}>About</a></li>
+        <li><a href="https://github.com/baptistegarderes" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      &copy; {new Date().getFullYear()} Baptiste Garderes &mdash; Built with Astro &amp; hosted on GitHub Pages
+    </footer>
+  </body>
+</html>

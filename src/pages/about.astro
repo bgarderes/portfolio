@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About — Baptiste Garderes" description="About Baptiste Garderes">
+  <section class="page">
+    <div class="container">
+      <h1>About me</h1>
+
+      <div class="bio">
+        <div class="text">
+          <p>
+            Hi, I'm <strong>Baptiste Garderes</strong> — an engineering student passionate about building things at the intersection of software and hardware.
+          </p>
+          <p>
+            I'm currently studying [your field] at [your school]. My work spans embedded systems, machine learning, and full-stack development.
+          </p>
+          <p>
+            Outside of projects, I enjoy [your interests]. Always open to collaborating on interesting problems — reach out via GitHub.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>C / C++</li>
+              <li>TypeScript</li>
+              <li>Rust</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Tools &amp; Frameworks</h3>
+            <ul>
+              <li>React / Astro</li>
+              <li>FastAPI / Node.js</li>
+              <li>Docker / Linux</li>
+              <li>Git / GitHub Actions</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Areas</h3>
+            <ul>
+              <li>Embedded systems</li>
+              <li>Machine learning</li>
+              <li>Web development</li>
+              <li>System design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Links</h2>
+        <ul class="links">
+          <li><a href="https://github.com/baptistegarderes" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:your@email.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page { padding: 4rem 2rem 6rem; }
+  .container { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+
+  h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; }
+
+  .bio .text { display: flex; flex-direction: column; gap: 1rem; }
+  .bio p { color: var(--muted); line-height: 1.8; font-size: 1rem; }
+  .bio strong { color: var(--text); }
+
+  .section { display: flex; flex-direction: column; gap: 1.25rem; }
+  h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; }
+  .skill-group h3 { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .skill-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .skill-group li { color: var(--muted); font-size: 0.9rem; }
+
+  .links { list-style: none; display: flex; gap: 1.5rem; }
+  .links a { color: var(--accent); text-decoration: none; font-size: 0.95rem; }
+  .links a:hover { text-decoration: underline; }
+</style>
